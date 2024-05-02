@@ -1,0 +1,16 @@
+SELECT * FROM grade WHERE subject = "english" AND grade > 20
+SELECT * FROM grade ORDER BY grade DESC
+
+
+INSERT INTO grade 
+	(subject, exercise, grade, date)
+VALUES
+	("french", "truc 5", 16, "15/08/2023"),
+	("english", "lol", 28, "26/15/2025")
+
+
+DELETE FROM grade WHERE grade = 16
+
+
+UPDATE grade SET grade = 15
+UPDATE grade SET grade = 20 WHERE subject = "english"
