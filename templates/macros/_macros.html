@@ -1,0 +1,9 @@
+{% macro pretty_trimesters(number) %}
+  {% if number == 1 %}
+  Premier trimestre
+  {% elif number == 2 %}
+  Second trimestre
+  {% elif number == 3 %}
+  Troisième trimestre
+  {% endif %}
+{% endmacro %}

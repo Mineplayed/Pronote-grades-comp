@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block create_button %}
+<nord-stack gap="s" direction="horizontal" justify-content="end">
+    <form action="/home/edit" method="POST">
+        <nord-button variant="primary" slot="end"><nord-icon slot="start" name="interface-add-small"></nord-icon>Create new</nord-button>
+    </form>
+</nord-stack>
+{% endblock create_button %}
+    
+{% block content %}
+<nord-stack>
+  {% for subject in subjects %}
+  <nord-card padding="none">
+    <h2 slot="header">{{ subject["name"] }}</h2>
+    <nord-table>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom du DS</th>
+            <th>Note</th>
+            <th>Jauge</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for grade in subject["grades"] %}
+          <tr>
+            <td class="n-table-ellipsis">{{ grade["exercise"] }}</td>
+            <td>{{ grade["grade"] }}</td>
+            <td>{{ grade["color"] }}</td>
+            <td>{{ grade["date"] }}</td>
+          </tr>
+          {% endfor %} 
+        </tbody>
+      </table>
+    </nord-table>
+  </nord-card> 
+  {% endfor %} 
+</nord-stack>
+{% endblock content %}

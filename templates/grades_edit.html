@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "macros/_macros.html" import pretty_trimesters %}
+
+{% block title %}Grades edit{% endblock title %}
+
+{% block content %}
+
+<nord-stack style="max-width: 340px; margin: var(--n-space-xl) auto">
+  <nord-banner shadow variant="info">Veuillez renseignez les champs obligatoires pour continuer. <a target="_blank"
+      href="https://sofia-briefing.aviation-civile.gouv.fr/content/sofia/datas/admin/medias/FAQ/Que%20signifie%20l%27ast%C3%A9risque/Que%20signifie%20l%27ast%C3%A9risque%20FRA/Que%20signifie%20l%27ast%C3%A9risque.pdf">En
+      savoir plus</a>.</nord-banner>
+  <nord-card padding="l">
+    <h1 slot="header">Ajouter une note</h1>
+    <form action="/home" method="POST">
+      <nord-stack>
+        <nord-select name="subject" label="Subject" placeholder="Please select a subject" required>
+          {% for subject in subjects %}
+          <option>{{ subject["name"] }}</option>
+          {% endfor %}
+        </nord-select>
+        <nord-input label="Exercise name" name="exercise" type="text" expand>
+        </nord-input>
+        <nord-input label="Grade" name="grade" type="number" expand required>
+        </nord-input>
+        <nord-date-picker label="Date" name="date" required></nord-date-picker>
+        <nord-select name="trimester" label="Trimester" placeholder="Please select a trimester" required>
+          {% for trimester in trimesters %}
+          <option>{{ pretty_trimesters(trimester["number"]) }}</option>
+          {% endfor %}
+        </nord-select>
+        <nord-button type="submit" variant="primary" name="submit" expand>Envoyer</nord-button>
+      </nord-stack>
+    </form>
+  </nord-card>
+</nord-stack>
+{% endblock content %}

@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://nordcdn.net/ds/css/3.1.1/nord.min.css" integrity="sha384-zz2Vh/uaPtnKKnKq4a8aP/R7ybJEZD3LuwnvmLE+p42C+Zjr2R0Y+PKwdABWc61A" crossorigin="anonymous" />
+    <script type="module" src="https://nordcdn.net/ds/components/3.8.0/index.js" integrity="sha384-zvZDBl7G/h/0UeesdZH1CBfL9kfoMi+5/I28m8u8yCgzJC7kohDH3I6XgaMzYnLW" crossorigin="anonymous"></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <nord-layout>
+            <!-- Navigation -->
+
+        <nord-navigation slot="nav">
+            <nord-nav-group heading="Workspace">
+            <nord-nav-item href="#" active icon="generic-fish">
+                <nord-nav-group slot="subnav">
+                    <nord-nav-item href="#">TRM 1</nord-nav-item>
+                    <nord-nav-item href="#">TRM 2</nord-nav-item>
+                    <nord-nav-item href="#">TRM 3</nord-nav-item>
+                    <nord-nav-item href="#">Overall</nord-nav-item>
+                </nord-nav-group>
+                Seconde 
+            </nord-nav-item>
+            <nord-nav-item icon="generic-sheep">
+                <nord-nav-group slot="subnav">
+                    <nord-nav-item href="#">TRM 1</nord-nav-item>
+                    <nord-nav-item href="#">TRM 2</nord-nav-item>
+                    <nord-nav-item href="#">TRM 3</nord-nav-item>
+                    <nord-nav-item href="#">Overall</nord-nav-item>
+                </nord-nav-group>
+                Première
+            </nord-nav-item>
+            <nord-nav-item icon="generic-leporidae">
+                <nord-nav-group slot="subnav">
+                    <nord-nav-item href="#">TRM 1</nord-nav-item>
+                    <nord-nav-item href="#">TRM 2</nord-nav-item>
+                    <nord-nav-item href="#">TRM 3</nord-nav-item>
+                    <nord-nav-item href="#">Overall</nord-nav-item>
+                </nord-nav-group>
+                Terminal    
+            </nord-nav-item>
+            <nord-nav-item href="#" icon="navigation-settings">Settings</nord-nav-item>
+            </nord-nav-group>
+        </nord-navigation>
+        
+        <!-- Header -->
+    
+        <nord-header slot="header">
+            <h1 class="n-typescale-l">Dashboard</h1>
+            {% block create_button %}{% endblock create_button %}
+        </nord-header>
+
+        {% block content %}{% endblock content %}
+
+    </nord-layout>
+</body>
+</html>
